@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   react:
-    container_name: sample
+    container_name: frontApp
     build:
       context: .
       dockerfile: Dockerfile
