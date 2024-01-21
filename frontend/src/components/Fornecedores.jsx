@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Stack, Box, Alert, AlertIcon, AlertTitle, useDisclosure, CloseButton } from "@chakra-ui/react";
 import { Card, Image, CardBody, CardFooter, Heading, Text, Button } from '@chakra-ui/react'
 
-
+import axios  from "axios";
 
 
 export default function Teste() {
@@ -32,12 +32,12 @@ export default function Teste() {
     const energy = {
       "energy": item
     }
-    const response = await fetch("http://ec2-18-226-251-16.us-east-2.compute.amazonaws.com:8000/suppliers/search", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(energy)
-    })
-    const lista = await response.json()
+
+    const response = await axios.post(
+      'http://ec2-18-226-251-16.us-east-2.compute.amazonaws.com:8000/suppliers/search',
+      { "energy": item }
+    );
+    const lista = await response.data
     // debugger
     setSupplierList(lista.data)
     setShowResults(true)
