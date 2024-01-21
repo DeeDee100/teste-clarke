@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Stack,Input, InputGroup } from "@chakra-ui/react";
+import Card from "./Card"
+import Footer from "./Footer"
 
 
 const SupplierContext = React.createContext({
@@ -8,48 +9,29 @@ supplier: [], fetchSupplier: () => {}
 
 
 export default function Home() {
-    const [item, setItem] = React.useState("")
-    const [supplier, setSupplier] = useState([])
 
-    const fetchSupplier = async() => {
-        const response = await fetch("http://localhost:8000/suppliers")
-        const supplier = await response.json()
-        setSupplier(supplier.data)
-    }
-
-    const handleInput = event  => {
-        setItem(event.target.value)
-      }
-
-    useEffect(() => {fetchSupplier()}, [])
-    
-    const handleSubmit = async (event) => {
-        const newTodo = {
-            "item": item
-        }
-        
-        const response = await fetch("http://localhost:8000/", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newTodo)
-        })
-        const supplier_list = await response.json()
-        debugger
-    }
-    
     return (
-    <SupplierContext.Provider value={{supplier, fetchSupplier}}>
-      <form onSubmit={handleSubmit}>
-        <InputGroup size="md">
-          <Input
-            pr="4.5rem"
-            type="text"
-            placeholder="Por favor digite seu consumo de energia."
-            aria-label="Por favor digite seu consumo de energia."
-            onChange={handleInput}
-          />
-        </InputGroup>
-      </form>
-      </SupplierContext.Provider>
+        <div>
+            <Card 
+                className='section'
+                title='Sobre Nós'
+                img="/img/raio.jpg" 
+                description='A Clarke dá suporte total à sua empresa para que ela consiga comprar eletricidade diretamente de geradores e comercializadores no Mercado Livre de Energia.'
+            />
+            <Card 
+                className='section'
+                title='Nossos diferenciais'
+                img="/img/energia_limpa.jpg" 
+                description='Atendimento Consultivo, Melhores preços, Plataforma tecnológica'
+            />
+            <Card 
+                className='section'
+                title='No Mercado Livre de Energia, a economia é de até 40% na conta'
+                img="/img/energia_limpa.jpg" 
+                description='Quem participa do Mercado Livre de Energia ou Ambiente de Contratação Livre (ACL) pode negociar todas as condições comerciais das contratações, como fornecedor, quantidade, preço, período de suprimento e forma de pagamento.'
+            />
+            <Footer/>
+        </div>
+        
     );
   };
