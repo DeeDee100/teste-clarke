@@ -1,4 +1,4 @@
-import { Stack, Box, Heading, Text, Container  } from "@chakra-ui/react";
+import { Container  } from "@chakra-ui/react";
 
 
 function Footer() {
