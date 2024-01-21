@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card"
+import Banner from "./Banner"
 import Footer from "./Footer"
 
 
@@ -18,6 +19,7 @@ export default function Home() {
                 img="/img/raio.jpg" 
                 description='A Clarke dá suporte total à sua empresa para que ela consiga comprar eletricidade diretamente de geradores e comercializadores no Mercado Livre de Energia.'
             />
+            <Banner />
             <Card 
                 className='section'
                 title='Nossos diferenciais'

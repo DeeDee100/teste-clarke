@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Stack, Box, Alert, AlertIcon, AlertTitle, useDisclosure , CloseButton  } from "@chakra-ui/react";
+import { Stack, Box, Alert, AlertIcon, AlertTitle, useDisclosure , CloseButton, Input  } from "@chakra-ui/react";
 import { Card, Image, CardBody, CardFooter, Heading, Text, Button } from '@chakra-ui/react'
 
 
@@ -118,9 +118,11 @@ export default function Teste() {
     }
     
     return (
-        <div>
+        <div
+          style={{margin:"0 0 0 0"}}
+        >
             <img src="/img/bg-energia.jpg" alt="" 
-            style={{opacity:"0.6", position:"absolute", height:"auto", width:"auto"}}
+            style={{opacity:"0.4", position:"absolute", height:"auto", width:"auto"}}
         />
         {isError ? <Alerta /> : null}
 
@@ -144,6 +146,8 @@ export default function Teste() {
           Submit
         </button>
       </form>
+
+
         {showResults ? <Child supply={supplier_list} /> : null}
       </div>
       </div>
