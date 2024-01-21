@@ -32,7 +32,7 @@ export default function Teste() {
     const energy = {
       "energy": item
     }
-    const response = await fetch("http://localhost:8000/suppliers/search", {
+    const response = await fetch("http://ec2-18-226-251-16.us-east-2.compute.amazonaws.com:8000/suppliers/search", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(energy)
